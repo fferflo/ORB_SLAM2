@@ -1,0 +1,13 @@
+get_filename_component(ORB_SLAM2_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+
+if(NOT TARGET ORB_SLAM2::ORB_SLAM2)
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -march=native")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native")
+
+  find_package(OpenCV 4.2 REQUIRED)
+  find_package(Eigen3 REQUIRED)
+  find_package(Pangolin REQUIRED)
+  find_package(OpenMP)
+
+  include("${ORB_SLAM2_CMAKE_DIR}/ORB_SLAM2Targets.cmake")
+endif()
